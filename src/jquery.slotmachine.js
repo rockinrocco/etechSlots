@@ -341,7 +341,6 @@ class SlotMachine {
             this._fxClass = FX_SPEED;
 
             if (FX_SPEED === FX_STOP) {
-                $elements.removeClass(FX_GRADIENT);
             } else {
                 $elements.addClass(FX_GRADIENT);
             }

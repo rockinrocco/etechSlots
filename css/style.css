@@ -44,8 +44,9 @@
 
 .slotMachine{
 	width: 32.333333%;
-    border: 10px solid gold;
-    border-radius: 65px;	height: 450px;
+    border: 2px solid gold;
+    border-radius: 15px;	
+    height: 450px;
     margin-top:-100px;
 	padding: 0px;
 	overflow: hidden;
@@ -56,7 +57,6 @@
 
 .btn-group-casino {
     margin-top: 150px;
-    margin-left: -32px;
 }
 
 .btn-group-casino .btn {
@@ -123,12 +123,33 @@
     background-size: contain;
 }
 
+.p1{
+    background-image: url("../img/slot1.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 55px;
+    margin-top:20px;
+}
+.p2{
+    background-image: url("../img/slot3.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}.p3{
+    background-image: url("../img/slot5.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 .slot2 {
 	background-image: url("../img/slot2.png");
         background-size: contain;
 
 }
 
+.tile{
+    background: #fff;
+    border-radius: 2px;
+    margin-top:55px;
+}
 .slot3 {
 	background-image: url("../img/slot3.png");
         background-size: contain;
