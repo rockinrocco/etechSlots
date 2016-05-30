@@ -1,0 +1,16 @@
+
+<style>
+.list{
+	background-color: white;
+	font-size:12px;
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:10px;
+	width:60%;
+	margin:auto;
+	text-align: center
+}
+</style>
+<div class="list" ng-repeat="list in lists track by $index" dynamic="lists">
+{{lists[$index]}}
+</div>

@@ -1,0 +1,125 @@
+
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+
+<script type="text/javascript" src="js/slots.js"></script>
+
+<style>
+.infoBox{
+  width:50%;
+  min-width:600px;
+  height:425px;
+  border-radius:5px;
+  top:50px;
+  box-shadow: 0px 1px 1px 0.3px;
+  border:1px solid rgba(0,0,0,0.1);
+  padding:10px;
+  background-color:white;
+  margin-left:auto;
+  margin-right:auto;
+  text-align: center;
+}
+
+.parent{
+  padding-top:80px;
+}
+
+.image {
+  margin:auto;
+  width:200px;;
+  height:110px;
+}
+.image img{
+  height:100px;
+  width:200px;;
+}
+.imgWrapper{
+  width:100%;
+  border-bottom:1px solid rgba(0,0,0,0.1);
+}
+
+.btn-success{
+  margin: auto;
+  height:50px;
+  width:30% !important;
+  font-size:18px;
+  background-color: rgb(4, 106, 58);
+}
+
+</style>
+<div class="parent">
+<div ng-show="slotMachineCtrl.getInformation" class="infoBox">
+<div class="imgWrapper">
+<div class="image">
+<img src="/images/slot1.png">
+</div>
+</div>
+  <md-content class="md-no-momentum" style="  padding-right:15%;padding-left:15%">
+  <p style="text-align:center; margin-top:10px; font-size:16px; font-weight:600">Enter your information to play</p>
+    <md-input-container class="md-icon-float md-block">
+      <!-- Use floating label instead of placeholder -->
+      <label>Name</label>
+      <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+      <input ng-model="slotMachineCtrl.name" type="text">
+      </md-input-container>
+
+       <md-input-container class="md-block">
+      <!-- Use floating placeholder instead of label -->
+      <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+      <input ng-model="slotMachineCtrl.email" type="text" placeholder="Email">
+    </md-input-container>
+    <md-input-container md-no-float class="md-block">
+  <button type="button" class="btn btn-success" ng-click="slotMachineCtrl.playSlots()">Play!</button>
+  </md-content>
+
+</div>
+
+</div>
+<div ng-show="slotMachineCtrl.showSlot" id="PageContainer">
+
+
+  <div  id="PageContainerInner"> <!-- Just to be able to set the "won!" extra background -->
+
+    <div id="prizes_list">
+        <div ng-repeat="prize in slotMachineCtrl.prizes">
+          <div id="trPrize_{{prize['id']}}" class="trPrize">
+            <div class="tdReels">
+              <div class="reel1 reelIcon {{prize['image1']['image_name']}}"></div>
+              <div class="reel2 reelIcon {{prize['image2']['image_name']}}"></div>
+              <div class="reel3 reelIcon {{prize['image3']['image_name']}}"></div>
+              <div class="clearer"></div>
+            </div>
+            <span class="tdPayout" data-basePayout="{{prize['payout_winnings']}}">{{prize['payout_winnings']}}</span>
+            <div class="clearer"></div>
+          </div>
+    </div>
+    </div>
+    <div id="slotMachineContainer">
+
+      <div id="ReelContainer">
+        <div id="reel1" class="reel"></div>
+        <div id="reel2" class="reel"></div>
+        <div id="reel3" class="reel"></div>
+        <div id="reelOverlay"></div>
+      </div>
+
+
+      <div id="betContainer">
+        <span id="lastWin"></span>
+        <span id="credits">{{slotMachineCtrl.credits}}</span>
+        <span id="dayWinnings">{{slotMachineCtrl.dayWinnings}}</span>
+        <span id="lifetimeWinnings">{{slotMachineCtrl.lifetimeWinnings}}</span>
+      </div>
+
+      <div id="spinButton"></div>
+    <button type="button" class="btn btn-danger" ng-show="slotMachineCtrl.showBackButton" style=" top: 115%;width: 100%;position: absolute; height: 50px;" ng-click="slotMachineCtrl.goBack()">< Back</button>
+
+    </div>
+
+
+    <script type="text/javascript">
+
+    </script>
+
+  </div>
+</div>

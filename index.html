@@ -1,87 +1,70 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>jQuery Slot Machine</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.0">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
-		<link rel="stylesheet" href="src/jquery.slotmachine.css" type="text/css" media="screen" />
-		<script type="text/javascript" src="dist/jquery/dist/jquery.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="src/jquery.slotmachine.js"></script>
-	</head>
-	<body>
-		<!-- Slot machine example -->
-		<div id="casino" style="padding-top:5px;">
-			<div class="content">
-				<div class="logo">
-					<img src ="img/slot1.png"/>
-				</div>
-				<div class="col-xs-4">
-					<section class="tile" fullscreen="isFullscreen05"> <!-- tile header --> <div class="tile-header dvd dvd-btm"> <h1 class="custom-font">Prize Table</h1> <ul class="controls"> </div> <!-- /tile header --> <!-- tile body --> <div class="tile-body p-0"> <table class="table table-hover"> <tbody> <tr> <td class="p1"> </td> <td>@prize  </td></tr><tr> <td class="p2"></td><td>@prize  </td></tr><tr> <td class="p3"> </td> <td>@prize  </td></tr></tbody></table> </div> <!-- /tile body --> </section>
-				</div>
-				<div class="col-xs-8" style="margin-top:150px">
-					<div class="middleContainer">
-						<div class="middleBar"></div>
-					</div>
-					<div id="casino1" class="col-xs-3 slotMachine slotMachineGradient" >
-						<div class="slot slot1 "></div>
-						<div class="slot slot2"></div>
-						<div class="slot slot3"></div>
-						<div class="slot slot4"></div>
-						<div class="slot slot5"></div>
-					</div>
-					<div id="casino2" class="col-xs-3 slotMachine slotMachineGradient">
-						<div class="slot slot1"></div>
-						<div class="slot slot2"></div>
-						<div class="slot slot3"></div>
-						<div class="slot slot4"></div>
-						<div class="slot slot5"></div>
-					</div>
-					<div id="casino3" class="col-xs-3 slotMachine slotMachineGradient">
-						<div class="slot slot1"></div>
-						<div class="slot slot2"></div>
-						<div class="slot slot3"></div>
-						<div class="slot slot4"></div>
-						<div class="slot slot5"></div>
-					</div>
-					<div class="btn-group btn-group-justified btn-group-casino" role="group">
-						<div id="slotMachineButtonShuffle" type="button" class="btn btn-primary btn-lg">Spin!</div>
-						<div id="slotMachineButtonStop" type="button" class="btn btn-primary btn-lg">Stop!</div>
-					</div>
-				</div>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-		<script>
-			$(document).ready(function(){
-				var machine4 = $("#casino1").slotMachine({
-							active	: 0,
-							delay	: 500
-				});
-				var machine5 = $("#casino2").slotMachine({
-							active	: 1,
-							delay	: 500
-				});
-				machine6 = $("#casino3").slotMachine({
-							active	: 2,
-							delay	: 500
-				});
-				var started = 0;
-				$("#slotMachineButtonShuffle").click(function(){
-					started = 3;
-					machine4.shuffle();
-					machine5.shuffle();
-					machine6.shuffle();
-				});
-				$("#slotMachineButtonStop").click(function(){
-							machine4.stop();
-							machine5.stop();
-							machine6.stop();
-		
-				});
-			});
-		</script>
-	</body>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Etech Slots</title>
+  <link type="text/css" rel="stylesheet" href="css/slots.css" />
+  <link type="text/css" rel="stylesheet" href="css/template3.css" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+  </head>
+  <body ng-app="etechSlotApp">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+
+    <div class="">
+    <div ng-view=""></div>
+    </div>
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-audio/app/angular.audio.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/slotmachine.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+        <!-- endbuild -->
+</body>
 </html>
