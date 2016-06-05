@@ -17,7 +17,7 @@ angular.module('etechSlotApp')
 
 
     $scope.list = $cookies.get('nameList');
-
+    console.log("s");
 
     this.getInformation = true;
     this.showSlot = false;
