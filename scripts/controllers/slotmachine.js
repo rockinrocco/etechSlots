@@ -17,7 +17,8 @@ angular.module('etechSlotApp')
 
 
     $scope.list = $cookies.get('nameList');
-    console.log("s");
+
+    console.log(""+ $scope.list);
 
     this.getInformation = true;
     this.showSlot = false;
@@ -54,7 +55,7 @@ angular.module('etechSlotApp')
 	this.prizes.push(prize2);
 	this.prizes.push(prize3);
 
-console.log(this.prizes)
+console.log(this.prizes) 
 
 	this.playSlots = function(){
 		if(slotMachineCtrl.name != '' && slotMachineCtrl.email != ''){
@@ -64,8 +65,13 @@ console.log(this.prizes)
 			if(currentList == null){
 				currentList = [];
 			};
+			var time = new Date();
+			time.setDate(time.getDate()+30);
+
 			currentList = currentList + "|| Name: " + slotMachineCtrl.name + " Email: " + slotMachineCtrl.email;
-			    $cookies.put('nameList',currentList);
+			    $cookies.put('nameList',currentList, options{
+			    	expires:time
+			    });
     	  slotMachineCtrl.credits = 3;
 
 		}

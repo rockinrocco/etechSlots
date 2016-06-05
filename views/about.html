@@ -11,6 +11,18 @@
 	text-align: center
 }
 </style>
-<div class="list" ng-repeat="list in lists track by $index" dynamic="lists">
-{{lists[$index]}}
+
+<div>
+
+
+<div style="height:60px;padding-top:10px">
+<a class="export">
+<div class="btn col-xs-4 col-xs-offset-4 btn-success">
+Export to CSV
+</div>
+</a>
+</div>
+<div class="list" dynamic="lists">
+{{lists}}
+</div>
 </div>
