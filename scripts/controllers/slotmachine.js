@@ -18,8 +18,6 @@ angular.module('etechSlotApp')
 
     $scope.list = $cookies.get('nameList');
 
-    console.log(""+ $scope.list);
-
     this.getInformation = true;
     this.showSlot = false;
     var slotMachineCtrl = this;
@@ -36,17 +34,17 @@ angular.module('etechSlotApp')
       slotMachineCtrl.showBackButton = false;
 
       this.prizes = [];
-      var prize1 = {'id':1,'payout_winnings':"Yeti Items",
+      var prize1 = {'id':1,'payout_winnings':"Koozie",
       'image1':{'image_name':'prize_1'},
       'image2':{'image_name':'prize_1'},
       'image3':{'image_name':'prize_1'},
   	};
-  	      var prize2 = {'id':2,'payout_winnings':"Etech Jar",
+  	      var prize2 = {'id':2,'payout_winnings':"Cup",
       'image1':{'image_name':'prize_2'},
       'image2':{'image_name':'prize_2'},
       'image3':{'image_name':'prize_2'},
   	};
-  	      var prize3 = {'id':0,'payout_winnings':"Wine Stopper",
+  	      var prize3 = {'id':0,'payout_winnings':"Pen",
       'image1':{'image_name':'prize_3'},
       'image2':{'image_name':'prize_3'},
       'image3':{'image_name':'prize_3'},
@@ -55,7 +53,7 @@ angular.module('etechSlotApp')
 	this.prizes.push(prize2);
 	this.prizes.push(prize3);
 
-console.log(this.prizes) 
+console.log(this.prizes)
 
 	this.playSlots = function(){
 		if(slotMachineCtrl.name != '' && slotMachineCtrl.email != ''){
@@ -63,13 +61,13 @@ console.log(this.prizes)
 			slotMachineCtrl.getInformation = false;
 			var currentList = $cookies.get('nameList');
 			if(currentList == null){
-				currentList = [];
+				currentList = "Name,Email";
 			};
 			var time = new Date();
 			time.setDate(time.getDate()+30);
 
-			currentList = currentList + "|| Name: " + slotMachineCtrl.name + " Email: " + slotMachineCtrl.email;
-			    $cookies.put('nameList',currentList, options{
+			currentList = currentList + "," + slotMachineCtrl.name + "," + slotMachineCtrl.email;
+			    $cookies.put('nameList',currentList, {
 			    	expires:time
 			    });
     	  slotMachineCtrl.credits = 3;

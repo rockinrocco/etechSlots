@@ -11,7 +11,8 @@ angular.module('etechSlotApp')
   .controller('AboutCtrl',["$scope","ngAudio",'$cookies', function ($scope,ngAudio,$cookies) {
 
 
-   $scope.lists = $cookies.get('nameList').split("||");
+
+   $scope.lists = $cookies.get('nameList')
 
 
 $(document).ready(function () {
@@ -20,7 +21,7 @@ $(document).ready(function () {
          // Data URI
         var csvData = 'data:application/csv;charset=utf-8,' + encodeURIComponent(csv);
         //alert(csv);
-        $("#export")
+        $(".export")
             .attr({
                 'download': filename,
                 'href': csvData,
@@ -29,10 +30,23 @@ $(document).ready(function () {
     }
 
     // This must be a hyperlink
-    $("#export").on('click', function (event) {
+    $(".export").on('click', function (event) {
         // CSV
-        var csv="1,2,3,4";
-        exportTableToCSV.apply($(".export"), [csv, 'EtechConferenceNames - ' + new Date("DD-MM-YYYY") +'.csv']);
+        var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+if(dd<10) {
+    dd='0'+dd
+} 
+
+if(mm<10) {
+    mm='0'+mm
+} 
+
+today = mm+'-'+dd+'-'+yyyy;;
+        exportTableToCSV.apply($(".export"), [$scope.lists, 'EtechConferenceNames - ' + today +'.csv']);
         
         // IF CSV, don't do event.preventDefault() or return false
         // We actually need this to be a typical hyperlink
